@@ -163,6 +163,7 @@ func (dp *deviceSharePlugin) OnSessionOpen(ssn *framework.Session) {
 			// TODO: we should use a seperate plugin for devices, and seperate them from predicates and nodeOrder plugin.
 			nodeScore := float64(score) * float64(dp.scheduleWeight)
 			klog.V(5).Infof("Node: %s, task<%s/%s> Device Score weight %d, score: %f", node.Name, task.Namespace, task.Name, dp.scheduleWeight, nodeScore)
+		        return nodeScore, nil
 		}
 		return 0, nil
 	})
